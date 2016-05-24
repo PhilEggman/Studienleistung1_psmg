@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerManager : MonoBehaviour {
 
     private int healthPoint;
-    private float speedBoost;
+    private int speedBoost;
 
     public int HealthPoint
     {

@@ -6,37 +6,36 @@ public class PlayerInputManager : MonoBehaviour {
     public float rotationSpeed = 30f;
     public float speedBoost = 20;
 
-    private int m_playerID;
 
-    private string m_inputMovementAxisName;
-    private string m_inputRotationAxisName;
+    private string inputMovementAxisName;
+    private string inputRotationAxisName;
 
-    private float m_inputMovement;
-    private float m_inputRotation;
+    private float inputMovement;
+    private float inputRotation;
 
-    private Transform m_spwanPoint;
+    private Transform spwanPoint;
 
-    private Rigidbody m_rigidbody;
+    private Rigidbody rigidbody;
 
     // Use this for initialization
      
     void Start() {
-        Init(m_spwanPoint);
+        Init(spwanPoint);
     }
 
     private void Move () {
-        m_inputMovement = Input.GetAxis(m_inputMovementAxisName);
-        Vector3 movement = transform.forward * speedBoost * m_inputMovement * Time.deltaTime;
+        inputMovement = Input.GetAxis(inputMovementAxisName);
+        Vector3 movement = transform.forward * speedBoost * inputMovement * Time.deltaTime;
 
-        m_rigidbody.MovePosition(m_rigidbody.position + movement);
+        rigidbody.MovePosition(rigidbody.position + movement);
     }
 
     private void Rotation () {
-        m_inputRotation = Input.GetAxis(m_inputRotationAxisName);
+        inputRotation = Input.GetAxis(inputRotationAxisName);
 
-        float turn = m_inputRotation * rotationSpeed * Time.deltaTime;
+        float turn = inputRotation * rotationSpeed * Time.deltaTime;
         Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
-        m_rigidbody.MoveRotation(m_rigidbody.rotation * turnRotation);
+        rigidbody.MoveRotation(rigidbody.rotation * turnRotation);
     }
 	
 	// Update is called once per frame
@@ -46,14 +45,14 @@ public class PlayerInputManager : MonoBehaviour {
         Rotation();
 	}
 
-    public void Init (Transform m_spwanPoint) {
+    public void Init (Transform spwanPoint) {
 
-        this.m_spwanPoint = m_spwanPoint;
+        this.spwanPoint = spwanPoint;
 
-        m_inputMovementAxisName = "Vertical";
-        m_inputRotationAxisName = "Horizontal";
+        inputMovementAxisName = "Vertical";
+        inputRotationAxisName = "Horizontal";
 
-        m_rigidbody = GetComponent<Rigidbody>();
+        rigidbody = GetComponent<Rigidbody>();
     }
 
 }

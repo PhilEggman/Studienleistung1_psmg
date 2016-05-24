@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Door.cs" />
      <Compile Include="Assets\DoorTrigger.cs" />
+     <Compile Include="Assets\Manager.cs" />
      <Compile Include="Assets\PlayerInputManager.cs" />
      <Compile Include="Assets\PlayerManager.cs" />
  <Reference Include="UnityEngine.UI">
